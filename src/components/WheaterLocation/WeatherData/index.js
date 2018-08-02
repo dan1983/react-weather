@@ -5,7 +5,7 @@ import WheaterExtraInfo from './WheaterExtraInfo';
 
 const WheaterData = () => (
     <div>
-        <WheaterTemperature/>
+        <WheaterTemperature temperature={20} weatherState={"cloud"}/>
         <WheaterExtraInfo humidity={80} wind={"10 m/s"}/>
       
 
@@ -13,3 +13,5 @@ const WheaterData = () => (
 );
 
 export default WheaterData;
+
+
