@@ -1,16 +1,33 @@
 import React from 'react';
 import WheaterTemperature from './WheaterTemperature';
 import WheaterExtraInfo from './WheaterExtraInfo';
+import PropTypes from 'prop-types';
 
 
-const WheaterData = () => (
-    <div>
-        <WheaterTemperature temperature={20} weatherState={"cloud"}/>
-        <WheaterExtraInfo humidity={80} wind={"10 m/s"}/>
-      
+const WheaterData = ({data}) => {
+    const {temperature,weatherState,humidity,wind} =data;
+    return (<div className="WheaterData flex aling-s">
+            <WheaterTemperature temperature={temperature} weatherState={weatherState}/>
+            <WheaterExtraInfo humidity={humidity} wind={wind}/>
+        </div>)
+};
 
-    </div>
-);
+WheaterData.propTypes = {
+    data: PropTypes.shape ( {
+        temperature:PropTypes.number.isRequired,
+        weatherState:PropTypes.string.isRequired ,
+        humidity:PropTypes.number.isRequired,
+        wind:PropTypes.number.isRequired,
+
+    }),
+};
+
+
+
+
+    
+
+
 
 export default WheaterData;
 

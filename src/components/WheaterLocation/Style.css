@@ -1,0 +1,84 @@
+.App {
+    width: 98%;
+    
+}
+
+.WheaterLocation {
+    padding:5% 10%;
+    -webkit-box-shadow: 10px 10px 45px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 45px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 45px 0px rgba(0,0,0,0.75);
+    }
+.location {
+    color: #636e72;
+    font-size: 50px;
+}
+.location>h1{
+    margin:0;
+}
+.WheaterData{
+    width: 100%;
+    margin: 0;
+    padding:0;
+    min-height: 400px;
+   }
+
+.WheaterTemperature{
+    font-size: 50px;
+    width: 40%;
+    color: white;
+    background-color: #00cec9;
+   
+}
+.WheaterExtraInfo{
+    width: 60%;
+    font-size: 50px;
+    background-color:#dfe6e9;
+    color: #636e72;
+    padding-left: 2%;
+    /*display: inline-flex;*/
+}
+.flex{
+    display: flex;
+ }
+.center-v{
+    display: inline-flex;
+}
+.aling {
+    align-items: stretch;
+}
+.flex-direction-c{
+    flex-direction: column;
+}
+.clear {
+ clear: both;
+}
+.d-block{
+    display: block;
+}
+.aling-content-v{
+    display: inline-flex;
+    align-items: center;
+}
+.w-100{
+    width: 100%;
+}
+.aling-center-h{
+    justify-content: center;
+}
+.p-top-20{
+    padding-top: 20%;
+}
+.p-top-30{
+    padding-top: 30%;
+}
+.t-aling-left{
+    text-align: left;
+
+}
+.f-size-b{
+    font-size: 40px
+}
+.p-top-10{
+    padding-top: 10%;
+}
