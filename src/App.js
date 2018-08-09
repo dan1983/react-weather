@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import WheaterLocation from './components/WheaterLocation/index';
+import LocationList from './components/WeatherLocation/LocationList';
 
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      <WheaterLocation></WheaterLocation>
-      </div>
-    );
-  }
+  
+    render() {
+      return (
+        <div className="App">
+           <LocationList></LocationList>
+        </div>
+      );
+    }
 }
 
 export default App;

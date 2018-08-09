@@ -1,26 +1,27 @@
 import React , { Component } from 'react';
 import Location from './Location';
+import PropTypes from 'prop-types';
 import WeaterData from './WeatherData';
 import './Style.css';
 import 'typeface-roboto';
-import { withStyles } from '@material-ui/core/styles';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
-import purple from '@material-ui/core/colors/purple';
-import SelectInput from '@material-ui/core/Select/SelectInput';
 
-const location ="London,uk";
+
+const url="http://api.openweathermap.org/data/2.5/weather";
+const city ="London,uk";
 const APP_KEY="0bed73889de8f5415f8ca768e929408f";
-const api_weather =`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APP_KEY}`
 
 
 
 
 
-class WheaterLocation extends Component {
-        constructor(){
+
+class WeatherLocation extends Component {
+        constructor({city}){
                 super();
                 this.state ={
-                        city:"Barcelona",
+                        city,
                         data:null
 
                 }
@@ -32,8 +33,20 @@ class WheaterLocation extends Component {
 
         }
 
+        componentWillMount(){
+                const api_weather =`${url}?q=${this.state.city}&appid=${APP_KEY}`;
+                fetch(api_weather).then(data => {
+                        return data.json();
+                }).then(weaterData => {
+                       const data = this.getData(weaterData);
+                       this.setState({data})
+                });
+
+
+        }
+
         componentDidMount() {
-                this.handleUpdateClick();
+                //this.handleUpdateClick();
               }
 
          getData =(weaterData) => {
@@ -54,6 +67,7 @@ class WheaterLocation extends Component {
 
         }
         handleUpdateClick = () => {
+                const api_weather =`${url}?q=${city}&appid=${APP_KEY}`
                 fetch(api_weather).then(data => {
                        
                         return data.json();
@@ -70,7 +84,7 @@ class WheaterLocation extends Component {
          
  
         render () {
-                const { classes } = this.props;
+      
                 return (
                         <div className="WheaterLocation flex flex-direction-c">
                                 <Location city={this.state.city}/>
@@ -80,5 +94,9 @@ class WheaterLocation extends Component {
                 )
         }
 }
+WeatherLocation.PropTypes={
+        city:PropTypes.string
+}
 
-export default WheaterLocation;
+
+export default WeatherLocation;

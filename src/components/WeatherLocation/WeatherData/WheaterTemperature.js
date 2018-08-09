@@ -17,7 +17,7 @@ const getWheaterIcon =(weatherState)=>{
 
 const WheaterTemperature = ({temperature,weatherState}) => {
     return (
-    <div className="WheaterTemperature aling-center-h p-top-10">
+    <div className="WheaterTemperature aling-center-h">
         <WeatherIcons className="clear" name={getWheaterIcon(weatherState)} size="2x"/>
         <span>{` ${temperature} c`}</span>
    </div>)
