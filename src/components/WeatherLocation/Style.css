@@ -17,7 +17,7 @@
     margin:0;
 }
 .WheaterData{
-    width: 100%;
+ 
     margin: 0;
     padding:0;
    
@@ -31,7 +31,7 @@
    
 }
 .WheaterExtraInfo{
-    width: 60%;
+  
     font-size: 50px;
     background-color:#dfe6e9;
     color: #636e72;
@@ -81,4 +81,31 @@
 }
 .p-top-10{
     padding-top: 10%;
+}
+.detail{
+    background-color: #dfe6e9;
+}
+
+@media all and (min-width: 48em) {
+
+.WheaterLocation  h1{
+    font-size: 1em;
+    margin: 0;
+    padding:0;
+   
+}
+.WheaterLocation  h3 , .WheaterLocation  h2 {
+    font-size: 20px!important;
+
+}
+.WheaterTemperature{
+
+    font-size: 20px!important;
+
+}
+.WheaterLocation {
+    max-height: 30vh;
+    overflow: auto;
+}
+
 }

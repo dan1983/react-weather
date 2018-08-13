@@ -2,14 +2,15 @@ import React from 'react';
 import WheaterTemperature from './WheaterTemperature';
 import WheaterExtraInfo from './WheaterExtraInfo';
 import PropTypes from 'prop-types';
-
+import Grid from '@material-ui/core/Grid';
 
 const WheaterData = ({data}) => {
     const {temperature,weatherState,humidity,wind} =data;
-    return (<div className="WheaterData flex aling-s">
+    return (
+        <Grid container spacing={24} className="WheaterData">
             <WheaterTemperature temperature={temperature} weatherState={weatherState}/>
             <WheaterExtraInfo humidity={humidity} wind={wind}/>
-        </div>)
+        </Grid>)
 };
 
 WheaterData.propTypes = {

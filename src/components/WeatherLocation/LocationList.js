@@ -1,5 +1,7 @@
 import React from 'react';
 import WeatherLocation from './WeatherLocation';
+import Grid from '@material-ui/core/Grid';
+
 
 const LocationList = ({cities,onSelectedLocation}) => {
     const handlerWeatherLocationClick = (city) => {
@@ -16,7 +18,7 @@ const LocationList = ({cities,onSelectedLocation}) => {
                     </WeatherLocation>})
     
     );
-    return  <div>{strToComponent(cities)}</div>
+    return   <Grid item xs={12} md={6}>{strToComponent(cities)}</Grid>
     
 };
 

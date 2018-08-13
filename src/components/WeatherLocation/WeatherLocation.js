@@ -5,6 +5,7 @@ import WeaterData from './WeatherData';
 import './Style.css';
 import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Paper from '@material-ui/core/Paper';
 
 
 const url="http://api.openweathermap.org/data/2.5/weather";
@@ -87,11 +88,13 @@ class WeatherLocation extends Component {
         render () {
                 const { onWeatherLocationClick }= this.props;
                 return (
-                        <div className="WheaterLocation flex flex-direction-c" onClick={onWeatherLocationClick}>
+      
+                        <Paper xs={12} sm={6}  className="WheaterLocation" onClick={onWeatherLocationClick}>
                                  {this.state.city?<Location city={this.state.city}/>:<CircularProgress color="secondary" />}
                                 {this.state.data?<WeaterData data={this.state.data}/>:<CircularProgress color="secondary" />}
-                             
-                        </div>
+                        </Paper>
+                  
+                       
                 )
         }
 }
