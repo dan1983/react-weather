@@ -7,6 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Forecast from './components/Forecast/Forecast';
 import './App.css';
 
 const cities = [
@@ -16,11 +17,18 @@ const cities = [
   'Madrid,es'
 ]
 
-class App extends Component {
+class App extends Component { 
+
+  constructor(){
+    super();
+    this.state = {city:null}
+
+  }
+
 
   handlerSelectedLocation =(city)=>{
-    
-  
+
+    this.setState({city:city});
   }
   
     render() {
@@ -39,9 +47,16 @@ class App extends Component {
               </Toolbar>
             </AppBar>
               <LocationList cities={cities}
-              onSelectedLocation={this.handlerSelectedLocation}
-              ></LocationList>
-               <Grid item xs={12}  sm={6} className="detail"></Grid>
+                onSelectedLocation={this.handlerSelectedLocation}>
+              </LocationList>
+              <Grid item xs={12}  sm={6} className="detail">
+                <div>
+
+                  {this.state.city && 
+                  <Forecast city={this.state.city}></Forecast>
+                  }
+                </div>
+              </Grid>
            </Grid>
         </div>
       );
