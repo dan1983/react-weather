@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WetherData from './../WeatherLocation/WeatherData/index'; 
 
-const ForecastItem = ({weekday})=>{
+const ForecastItem = ({weekday,data,hour})=>{
 
     return <div>
-               {weekday}
+               <div>{weekday} { hour}</div>
+               <WetherData data={data} />
            </div>
-
 
 }
 ForecastItem.prototype ={

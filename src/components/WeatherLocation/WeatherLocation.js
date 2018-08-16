@@ -18,9 +18,7 @@ class WeatherLocation extends Component {
                 this.state ={
                         city,
                         data:null
-
                 }
-
         }
 
         getWeaterState =(weather)=>{
@@ -41,9 +39,6 @@ class WeatherLocation extends Component {
 
 
         }
-
-        
-
         componentDidMount() {
                 //this.handleUpdateClick();
               }
@@ -67,9 +62,6 @@ class WeatherLocation extends Component {
 
                 }
         }
-
-      
-     
         handleUpdateClick = () => {
                 const api_weather =`${url}?q=${city}&appid=${APP_KEY}`
                 fetch(api_weather).then(data => {

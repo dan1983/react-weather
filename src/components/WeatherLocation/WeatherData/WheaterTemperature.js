@@ -18,11 +18,10 @@ const getWheaterIcon =(weatherState)=>{
 
 const WheaterTemperature = ({temperature,weatherState}) => {
     return (
-        
-    <Grid item xs={12} sm={4} lg={4} className="WheaterTemperature aling-center-h">
-            <WeatherIcons className="clear" name={getWheaterIcon(weatherState)} size="2x"/>
-            <span>{` ${temperature} c`}</span>
-    </Grid>)
+        <Grid item xs={12} sm={4} lg={4} className="WheaterTemperature aling-center-h">
+                <WeatherIcons className="clear" name={getWheaterIcon(weatherState)} size="2x"/>
+                <span>{` ${temperature} c`}</span>
+        </Grid>)
 };
 WheaterTemperature.propTypes={
     temperature: PropTypes.number.isRequired, 
