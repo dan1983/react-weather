@@ -1,16 +1,25 @@
 import moment from 'moment';
-
-const transformForecastData = (data)=> {
-   data.list.filter((item)=>{
-             moment.unix(item.dt).hour===6 ||
-             moment.unix(item.dt).hour===12 ||
-             moment.unix(item.dt).hour===18
-
-   })
-
-  
+import transformWeaterData from './transformWeaterData'
 
 
-}
+const transformForecastData = data => {{
+
+       return  data.list.filter(item =>{
+                  return  moment.unix(item.dt).hour() === 8
+              
+            }).map(item=>(
+                {   
+                    weekDay: moment.unix(item.dt).format('ddd') ,
+                    hour: moment.unix(item.dt).hour() 
+
+
+                }
+
+
+            ))
+           
+         }}
+
+
 
 export default transformForecastData;

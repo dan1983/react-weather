@@ -6,6 +6,7 @@ import './Style.css';
 import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Paper from '@material-ui/core/Paper';
+import TransformWeaterData from './../../services/transformWeaterData';
 
 
 const url="http://api.openweathermap.org/data/2.5/weather";
@@ -32,7 +33,7 @@ class WeatherLocation extends Component {
                         return data.json();
                 }).then(weaterData => {
                       if(weaterData) {
-                                const data = this.getData(weaterData);
+                                const data = TransformWeaterData(weaterData);
                                 this.setState({data});
                         }
                 });
@@ -42,7 +43,7 @@ class WeatherLocation extends Component {
         componentDidMount() {
                 //this.handleUpdateClick();
               }
-
+/*
          getData =(weaterData) => {
                
                 if(weaterData.cod!=="404"){
@@ -62,14 +63,15 @@ class WeatherLocation extends Component {
 
                 }
         }
+        */
         handleUpdateClick = () => {
                 const api_weather =`${url}?q=${city}&appid=${APP_KEY}`
                 fetch(api_weather).then(data => {
-                       return data.json();
+                        data.json();
 
                 }).then(weaterData => {
                         if(weaterData){
-                                const data = this.getData(weaterData);
+                                const data = TransformWeaterData(weaterData);
                                 this.setState({data})
                         }
                 });

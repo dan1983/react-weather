@@ -33,7 +33,8 @@ class Forecast extends Component {
         this.state={forecastData:null}
     }
 
-    renderForecastItemWeekday(){
+    renderForecastItemWeekday(forecastData){
+       
         //return  weekDays.map((day)=><ForecastItem key={day} weekday={day} data={data}  hour={10}/>                       )
         return "cargando...";
        
@@ -49,14 +50,18 @@ class Forecast extends Component {
         const api_forecast =`${url}?q=${this.props.city}&appid=${APP_KEY}`;
         fetch(api_forecast).then(data => {
             return data.json();
-        }).then(weaterDataForecast => {
-          if(weaterDataForecast) {
-                   // const data = this.getData(weaterData);
-                    //this.setState({data});
-                   const forecastData=transformForecastData(weaterDataForecast);
+        }).then(wheather_data => {
+          if(wheather_data) {
+             
+              const forecastData = transformForecastData(wheather_data);
                    console.log(forecastData);
                    
-                   this.setState({forecastData});
+                    //this.setState({forecastData})
+               this.setState({forecastData});
+                  // const forecastData=transformForecastData(weaterDataForecast);
+                   //console.log(forecastData);
+                   
+                 
                  
                    
             }
@@ -69,7 +74,7 @@ class Forecast extends Component {
     render() {
        
         const {forecastData}=this.props;
-        console.log(forecastData);
+       
         return( <div>
                 {forecastData!==null ? 
                 this.renderForecastItemWeekday(forecastData) :this.inProgress()
