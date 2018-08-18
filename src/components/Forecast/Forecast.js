@@ -25,11 +25,7 @@ class Forecast extends Component {
             /></div>
         })
       
-       
-        //return  weekDays.map((day)=><ForecastItem key={day} weekday={day} data={data}  hour={10}/>                       )
-       
-       
-        
+     
     }
     inProgress(){
 
@@ -37,19 +33,31 @@ class Forecast extends Component {
     }
 
     componentDidMount(){
+
+        this.updateForecast(this.props.city)
        
-        
-        const api_forecast =`${url}?q=${this.props.city}&appid=${APP_KEY}`;
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.city!== this.props.city){
+          
+            this.updateForecast(nextProps.city)
+
+        }
+
+
+    }
+
+    updateForecast = (city)=> {
+        const api_forecast =`${url}?q=${city}&appid=${APP_KEY}`;
         fetch(api_forecast).then(data => {
             return data.json();
         }).then(wheather_data => {
           if(wheather_data) {
               const forecastData = transformForecastData(wheather_data);
-              console.log(forecastData);
-             this.setState({forecastData});
+              this.setState({forecastData});
              }
-    });
-
+        });
 
 
     }
