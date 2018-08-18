@@ -1,7 +1,7 @@
 const transformWeatherData = (weaterData)=> {
     
   
-   if(weaterData.cod!=="404"){
+   if(weaterData.cod!=="404" && weaterData !=='undefined'){
                       
         const { temp} =weaterData.main;
         const { humidity}= weaterData.main;

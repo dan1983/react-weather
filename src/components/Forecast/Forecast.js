@@ -2,25 +2,7 @@ import React,{Component}  from 'react';
 import PropTypes from 'prop-types';
 import ForecastItem from './ForecastItem';
 import transformForecastData from './../../services/transformForecastData';
-/*
 
-const forecastData ={
-    temperature:20,
-    weatherState: 'sunny',
-    humidity:20,
-    wind:10,
-}
-
-const weekDays =[
-    'Lunes',
-    'Martes',
-    'MIercoles',
-    'Jueves',
-    'Viernes'
-
-
-];
-*/
 
 const url="http://api.openweathermap.org/data/2.5/forecast";
 const APP_KEY="0bed73889de8f5415f8ca768e929408f";
@@ -33,10 +15,19 @@ class Forecast extends Component {
         this.state={forecastData:null}
     }
 
-    renderForecastItemWeekday(forecastData){
+    renderForecastItemWeekday(forecastData,city){
+       return forecastData.map( foreacast => {
+            return  <div><h3>{city}</h3><ForecastItem
+                key={`${foreacast.weekDay}${forecastData.hour}`}
+                weekday={foreacast.weekday}
+                data ={foreacast.data}
+                hour ={foreacast.hour}
+            /></div>
+        })
+      
        
         //return  weekDays.map((day)=><ForecastItem key={day} weekday={day} data={data}  hour={10}/>                       )
-        return "cargando...";
+       
        
         
     }
@@ -47,24 +38,16 @@ class Forecast extends Component {
 
     componentDidMount(){
        
+        
         const api_forecast =`${url}?q=${this.props.city}&appid=${APP_KEY}`;
         fetch(api_forecast).then(data => {
             return data.json();
         }).then(wheather_data => {
           if(wheather_data) {
-             
               const forecastData = transformForecastData(wheather_data);
-                   console.log(forecastData);
-                   
-                    //this.setState({forecastData})
-               this.setState({forecastData});
-                  // const forecastData=transformForecastData(weaterDataForecast);
-                   //console.log(forecastData);
-                   
-                 
-                 
-                   
-            }
+              console.log(forecastData);
+             this.setState({forecastData});
+             }
     });
 
 
@@ -73,13 +56,12 @@ class Forecast extends Component {
   
     render() {
        
-        const {forecastData}=this.props;
-       
+        const {forecastData}=this.state;
         return( <div>
-                {forecastData!==null ? 
-                this.renderForecastItemWeekday(forecastData) :this.inProgress()
-                }
-            </div>);
+                    {(forecastData!==null && (this.props.city!==null ||  this.props.city!=="undefined") )?
+                this.renderForecastItemWeekday(forecastData,this.props.city) :this.inProgress()
+                    }
+                </div>);
     }
 
    

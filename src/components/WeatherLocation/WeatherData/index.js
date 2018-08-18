@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 
 const WheaterData = ({data}) => {
-    const {temperature,weatherState,humidity,wind} =data;
+    if(data) {
+    const {temperature,weatherState,humidity,wind}=data;
     return (
         <Grid container spacing={24} className="WheaterData">
             <WheaterTemperature temperature={temperature} weatherState={weatherState}/>
             <WheaterExtraInfo humidity={humidity} wind={wind}/>
         </Grid>)
+    }else{
+        return (<Grid container spacing={24} className="WheaterData">No hay data</Grid>)
+    }
 };
 
 WheaterData.propTypes = {

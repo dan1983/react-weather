@@ -11,10 +11,10 @@ import Forecast from './components/Forecast/Forecast';
 import './App.css';
 
 const cities = [
-  'Buenos Aires,ar',
-  'Washington DC,us',
-  'Bogota,col',
-  'Madrid,es'
+'Buenos Aires,ar',
+'Washington DC,us',
+'Bogota,col',
+'Madrid,es'
 ]
 
 class App extends Component { 

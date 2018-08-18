@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 const Location = (props) => {
     const {city} = props;
     return (<Grid container spacing={24}>
-                <Grid item xs={12} className="location">
+                <Grid item xs={12} className="location" key={city}>
                     <h1> {city} </h1>
                 </Grid>
             </Grid> );
