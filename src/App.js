@@ -8,6 +8,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Forecast from './components/Forecast/Forecast';
+import {store} from './store';
+
+import {setCity} from './actions';
 import './App.css';
 
 const cities = [
@@ -16,6 +19,10 @@ const cities = [
 'Bogota,col',
 'Madrid,es'
 ]
+
+
+
+
 
 class App extends Component { 
 
@@ -29,6 +36,9 @@ class App extends Component {
   handlerSelectedLocation =(city)=>{
 
     this.setState({city:city});
+    console.log('handlerSelectedLocation');
+    store.dispatch(setCity(city))
+
   }
   
     render() {
