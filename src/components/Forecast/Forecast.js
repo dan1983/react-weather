@@ -18,7 +18,7 @@ class Forecast extends Component {
     renderForecastItemWeekday(forecastData,city){
        return forecastData.map( foreacast => {
             return  <div><h3>{city}</h3><ForecastItem
-                key={`${foreacast.weekDay}${forecastData.hour}`}
+                key={`${city}${foreacast.weekDay}${forecastData.hour}`}
                 weekday={foreacast.weekday}
                 data ={foreacast.data}
                 hour ={foreacast.hour}

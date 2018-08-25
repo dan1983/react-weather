@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {setCity} from './../actions';
+import { setSelectedCity} from './../actions';
 import {connect} from 'react-redux';
 import LocationList from './../components/WeatherLocation/LocationList'
 
@@ -32,7 +32,7 @@ LocationListContainer.prototypes = {
       
       
 const mapDispatchToPropsActions = (dispatch)=>({
-    distpatchSetCity:value =>dispatch(setCity(value))
+    distpatchSetCity:value =>dispatch(setSelectedCity(value))
 });
       
 
